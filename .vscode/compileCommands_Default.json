@@ -1,0 +1,117 @@
+[
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Bird.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Bird.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BirdParameters.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BirdParameters.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BirdTarget.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BirdTarget.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BirdTargetStruct.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BirdTargetStruct.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Boids.Build.cs",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Boids.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Boids.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BoidsCharacter.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BoidsCharacter.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BoidsGameInstance.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BoidsGameInstance.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BoidsGameMode.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\BoidsGameMode.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\PubSub.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\PubSub.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\TargetComponent.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\TargetComponent.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\UIManager.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\UIManager.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	}
+]

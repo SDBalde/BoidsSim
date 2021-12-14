@@ -1,0 +1,128 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Boids (Debug)",
+			"request": "launch",
+			"preLaunchTask": "Boids Win64 Debug Build",
+			"program": "D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Boids (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "Boids Win64 DebugGame Build",
+			"program": "D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Boids (Development)",
+			"request": "launch",
+			"preLaunchTask": "Boids Win64 Development Build",
+			"program": "D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Binaries\\Win64\\UE4.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Boids (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "Boids Win64 Shipping Build",
+			"program": "D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Boids (Test)",
+			"request": "launch",
+			"preLaunchTask": "Boids Win64 Test Build",
+			"program": "D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Binaries\\Win64\\UE4-Win64-Test.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "BoidsEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "BoidsEditor Win64 Debug Build",
+			"program": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"args": [
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject"
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "BoidsEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "BoidsEditor Win64 DebugGame Build",
+			"program": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
+			"args": [
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject"
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "BoidsEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "BoidsEditor Win64 Development Build",
+			"program": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject"
+			],
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "clr",
+			"request": "launch",
+			"program": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+		}
+	]
+}

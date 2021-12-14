@@ -1,0 +1,707 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Boids Win32 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win32 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win32 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win32 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Shipping",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Shipping",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win32 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Shipping",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Test",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Test Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Test",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win32 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win32 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win32",
+				"Test",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win64 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win64 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Shipping",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Shipping",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win64 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Shipping",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Test",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Test Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Test",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Boids Win64 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "Boids Win64 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"Boids",
+				"Win64",
+				"Test",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"BoidsEditor Win64 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"Debug",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"BoidsEditor Win64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"DebugGame",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"BoidsEditor Win64 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		},
+		{
+			"label": "BoidsEditor Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BoidsEditor",
+				"Win64",
+				"Development",
+				"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\Boids.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Program Files\\UnrealEngine\\UE_4.26"
+			}
+		}
+	]
+}
