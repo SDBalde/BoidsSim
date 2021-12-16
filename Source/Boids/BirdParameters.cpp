@@ -81,6 +81,9 @@ int ABirdParameters::getMaxNeighbors(){
 bool ABirdParameters::getDebug(){
 	return this->debug;
 }
+FString ABirdParameters::getName(){
+	return targetStruct.targetName.ToString();
+}
 FBirdTargetStruct ABirdParameters::getStruct(){
 	return targetStruct;
 }

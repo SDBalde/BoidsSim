@@ -69,6 +69,7 @@ public:
 	float getMinSpeed();
 	int getMaxNeighbors();
 	bool getDebug();
+	FString getName();
 	UFUNCTION(BlueprintCallable)
 		FBirdTargetStruct getStruct();
 	UFUNCTION(BlueprintCallable)

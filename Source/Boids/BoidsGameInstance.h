@@ -24,6 +24,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, Category = "UI")
 	class UUIManager* UIManager;
 	TArray<ABirdParameters*> birdParams;
+	ABirdParameters* currParams = nullptr;
 
 public:	
 
@@ -40,5 +41,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnLoadInGameMenu();
 	void LinkParameters(ABirdParameters* params);
+	void ChangeParameters(int newParamIndex);
 	
 };

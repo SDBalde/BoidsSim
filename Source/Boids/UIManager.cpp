@@ -10,7 +10,7 @@ void UUIManager::ChangeBirdParamValue(FString paramName, float newValue){
 	}
 }
 
-void UUIManager::SetParameters(TArray<ABirdParameters*> params){
+ABirdParameters* UUIManager::SetParameters(TArray<ABirdParameters*> params){
 	birdparameters = params;
 	int birds = -1;
 	for(ABirdParameters* param:params){
@@ -21,6 +21,7 @@ void UUIManager::SetParameters(TArray<ABirdParameters*> params){
 	}
 	ChangeValues();
 	selectParamTarget(currParams);
+	return currParams;
 }
 
 void UUIManager::setTarget(AActor* target){
@@ -43,4 +44,8 @@ void UUIManager::ChangeValues(){
 	targetFactorTxt_1->SetText(FText::AsNumber(currParams->getTargetFactor()));
 	maxSpeedTxt->SetText(FText::AsNumber(currParams->getMaxSpeed()));
 	minSpeedTxt->SetText(FText::AsNumber(currParams->getMinSpeed()));
+}
+
+void UUIManager::setCurrPlayerParam(FString paramName){
+	currPlayerParam->SetText(FText::FromString(paramName));
 }

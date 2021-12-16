@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/EditableTextBox.h"
+#include "Components/TextBlock.h"
 #include "Components/ListView.h"
 #include "BirdParameters.h"
 #include "Actor.h"
@@ -43,6 +44,8 @@ protected:
 		class UEditableTextBox* maxSpeedTxt;
 	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
 		class UEditableTextBox* minSpeedTxt;
+	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
+		class UTextBlock* currPlayerParam;
 	
 	ABirdParameters* currParams = nullptr;
 
@@ -53,9 +56,10 @@ public:
 		void ChangeBirdParamValue(FString paramName, float newValue);
 	UFUNCTION(BlueprintCallable)
 		void setTarget(AActor* target);
-	void SetParameters(TArray<ABirdParameters*> params);
+	ABirdParameters* SetParameters(TArray<ABirdParameters*> params);
 	UFUNCTION(BlueprintCallable)
 		void setParam(ABirdParameters* param);
 	UFUNCTION(BlueprintImplementableEvent)
 		void selectParamTarget(ABirdParameters* param);
+	void setCurrPlayerParam(FString paramName);
 };	

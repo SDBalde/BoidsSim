@@ -26,15 +26,36 @@ void UBoidsGameInstance::OnLoadInGameMenu(){
 
 	UIManager->AddToViewport();
 	if(birdParams.Num() == 0) return;
-	UIManager->SetParameters(birdParams);
-	
-	// Set the reference to the interface object
-	//UIManager->SetMenuInterface(this);
+	currParams = UIManager->SetParameters(birdParams);
+	UIManager->setCurrPlayerParam(currParams->getName());
 }
 
 void UBoidsGameInstance::LinkParameters(ABirdParameters* params){
 	UE_LOG(LogTemp, Warning, TEXT("Link"));
 	birdParams.Add(params);
-	//if (UIManager == nullptr) return;
-	//UIManager->ChangeTxt(FString::SanitizeFloat(birdParams->getTurnFactor()));
+}
+
+void UBoidsGameInstance::ChangeParameters(int newParamIndex){
+	FString newParamName = "";
+	switch (newParamIndex)
+	{
+	case 1:
+		newParamName = "General";
+		break;
+	case 2:
+		newParamName = "Focused";
+		break;
+	case 3:
+		newParamName = "Loose";
+		break;
+	default:
+		break;
+	}
+	for(ABirdParameters* param:birdParams){
+		if(param->getName() == newParamName){
+			currParams->setParam(param);
+			currParams = param;
+			UIManager->setCurrPlayerParam(newParamName);
+		}
+	}
 }
