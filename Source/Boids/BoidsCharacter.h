@@ -78,6 +78,9 @@ protected:
 	/** Shoot a target*/
 	void ShootTarget();
 
+	/** Set the target as an actor*/
+	void TargetActor();
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

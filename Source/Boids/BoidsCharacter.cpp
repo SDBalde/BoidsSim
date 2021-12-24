@@ -72,6 +72,7 @@ void ABoidsCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInp
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ABoidsCharacter::ActivateFlying);
 	PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &ABoidsCharacter::ShootTarget);
+	PlayerInputComponent->BindAction("TargetActor", IE_Pressed, this, &ABoidsCharacter::TargetActor);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const int);
 	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation1", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 1);
@@ -202,4 +203,8 @@ void ABoidsCharacter::ShootTarget(){
 			this->GetGameInstance<UBoidsGameInstance>()->ChangeTarget(hitRes.GetActor());
 		}
 	}
+}
+
+void ABoidsCharacter::TargetActor(){
+	this->GetGameInstance<UBoidsGameInstance>()->ChangeTarget(this);
 }
