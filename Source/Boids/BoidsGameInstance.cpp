@@ -59,3 +59,7 @@ void UBoidsGameInstance::ChangeParameters(int newParamIndex){
 		}
 	}
 }
+
+void UBoidsGameInstance::ChangeTarget(AActor* target){
+	currParams->setTarget(target);
+}

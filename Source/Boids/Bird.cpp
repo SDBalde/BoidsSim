@@ -190,10 +190,13 @@ void ABird::Tick(float DeltaTime)
 	FCollisionObjectQueryParams objParams(ECC_WorldStatic);
 	bool hit = GetWorld()->LineTraceSingleByObjectType(hitRes,pos,pos+dir*visualRange,objParams);
 	if(hit){
+		if(!hitRes.GetActor()->ActorHasTag(FName(TEXT("target")))){
+			vel = -vel;
+		}
 		//try to move in opposite direction
 		//TODO code ray scan to find unobstructed path
 		//vel = vel + (dir-FVector(0,1,0))*turnfactor;
-		vel = vel + dir*(-turnFactor);
+		//vel = vel + dir + (FVector(0,1,0)*turnFactor);
 	}
 
 	if(debug){ //Display debug info

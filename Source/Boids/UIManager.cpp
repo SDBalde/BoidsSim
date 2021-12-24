@@ -29,7 +29,7 @@ void UUIManager::setTarget(AActor* target){
 }
 
 void UUIManager::setParam(ABirdParameters* param){
-	currParams->setParam(param);
+	//currParams->setParam(param);
 	currParams = param;
 	ChangeValues();
 }

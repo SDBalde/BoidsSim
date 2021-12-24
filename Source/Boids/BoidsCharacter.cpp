@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "TargetComponent.h"
 #include "BoidsGameInstance.h"
+#include "DrawDebugHelpers.h"
 #include "Engine/EngineTypes.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -70,11 +71,12 @@ void ABoidsCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInp
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ABoidsCharacter::ActivateFlying);
+	PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &ABoidsCharacter::ShootTarget);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const int);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation1", IE_Released, this, &ABoidsCharacter::ChangeFormation, 1);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation2", IE_Released, this, &ABoidsCharacter::ChangeFormation, 2);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation3", IE_Released, this, &ABoidsCharacter::ChangeFormation, 3);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation1", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 1);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation2", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 2);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation3", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 3);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ABoidsCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ABoidsCharacter::MoveRight);
@@ -186,4 +188,18 @@ void ABoidsCharacter::ActivateFlying(){
 
 void ABoidsCharacter::ChangeFormation(int newFormation){
 	this->GetGameInstance<UBoidsGameInstance>()->ChangeParameters(newFormation);
+}
+
+void ABoidsCharacter::ShootTarget(){
+	FHitResult hitRes;
+	FCollisionObjectQueryParams objParams(ECC_WorldStatic);
+	objParams.AddObjectTypesToQuery(ECC_WorldDynamic);
+	bool hit = GetWorld()->LineTraceSingleByObjectType(hitRes,CameraBoom->GetComponentLocation(),CameraBoom->GetComponentLocation()+FollowCamera->GetForwardVector()*10000.0f,objParams);
+	if(hit){
+		//DrawDebugLine(GetWorld(), CameraBoom->GetComponentLocation(), (CameraBoom->GetComponentLocation()+FollowCamera->GetForwardVector()*10000.0f), FColor::Red, false, 1.0f);
+		//DrawDebugBox(GetWorld(), hitRes.ImpactPoint, FVector(5,5,5), FColor::Green, false, 1.0f); // The incoming collision
+		if(hitRes.GetActor()->ActorHasTag(FName(TEXT("target")))){
+			this->GetGameInstance<UBoidsGameInstance>()->ChangeTarget(hitRes.GetActor());
+		}
+	}
 }

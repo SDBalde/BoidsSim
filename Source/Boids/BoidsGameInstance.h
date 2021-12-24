@@ -42,5 +42,6 @@ public:
 	void OnLoadInGameMenu();
 	void LinkParameters(ABirdParameters* params);
 	void ChangeParameters(int newParamIndex);
+	void ChangeTarget(AActor* target);
 	
 };

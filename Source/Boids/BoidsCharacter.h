@@ -75,6 +75,9 @@ protected:
 	/** Change the formation of the birds */
 	void ChangeFormation(int newFormation);
 
+	/** Shoot a target*/
+	void ShootTarget();
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
