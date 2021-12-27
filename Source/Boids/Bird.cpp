@@ -13,8 +13,21 @@ ABird::ABird()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	//BodyComp = CreateDefaultSubobject<USphereComponent>(TEXT("Body"));
 	SM_Bird = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SM Bird"));
-	RootComponent = SM_Bird;
+	
+	//BodyComp->SetupAttachment(RootComponent);
+	//BodyComp->SetSimulatePhysics(false);
+    //BodyComp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	SM_Bird->SetWorldScale3D(FVector(0.1f,0.1f,0.1f));
+	SM_Bird->SetSimulatePhysics(true);
+	SM_Bird->SetEnableGravity(false);
+	SM_Bird->SetLinearDamping(0.0f);
+	SM_Bird->SetCollisionProfileName(TEXT("BirdCollisionPreset"));
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_BirdAsset(TEXT("StaticMesh'/Game/Meshes/BirdMesh.BirdMesh'"));
+    SM_Bird->SetStaticMesh(SM_BirdAsset.Object);
+	
 }
 
 ABird::~ABird(){
@@ -99,11 +112,11 @@ void ABird::UpdateParameters(){
 void ABird::BeginPlay()
 {
 	Super::BeginPlay();
-	if(Birdparameters != nullptr){
-		settings = Cast<ABirdParameters>(Birdparameters);
-		if(!settings){
-			UE_LOG(LogTemp, Warning, TEXT("no settings"));
-		}
+	if(settings){
+		//settings = Cast<ABirdParameters>(Birdparameters);
+		//if(!settings){
+		//	UE_LOG(LogTemp, Warning, TEXT("no settings"));
+		//}
 		
 		Subscribe();
 		UpdateParameters();
@@ -158,7 +171,10 @@ void ABird::Tick(float DeltaTime)
 	}
 
 	vel = vel + (close * avoidFactor); // Avoid bird who are too close
-
+	float RandX = FMath::RandRange(0,1)/1.0f;
+	float RandY = FMath::RandRange(0,1)/1.0f;
+	float RandZ = FMath::RandRange(0,1)/1.0f;
+	vel = vel + FVector(RandX,RandY,RandZ) * randomMovement; // random movement
 	if(target != nullptr){
 		targetPosition = target->GetActorLocation();
 		vel = vel + (targetPosition - pos)*targetFactor;
@@ -256,4 +272,25 @@ void ABird::ClampSpeed(){
 	}else if(speed > maxSpeed){
 		vel = dir * maxSpeed;
 	}
+}
+
+void ABird::ShowBird(){
+	SetActorHiddenInGame(false);
+	SetActorEnableCollision(true);
+	SetActorTickEnabled(true);
+}
+
+void ABird::HideBird(){
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+	SetActorTickEnabled(false);
+}
+
+void ABird::SetParameters(ABirdParameters* newParams){
+	if(settings){
+		Unsubsrcibe();
+	}
+	this->settings = newParams;
+	Subscribe();
+	UpdateParameters();
 }

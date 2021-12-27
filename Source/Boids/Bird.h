@@ -22,10 +22,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    	//class USphereComponent* BodyComp;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UStaticMeshComponent* SM_Bird;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class AActor* Birdparameters = nullptr; // The parameters that control the bird used to set in editor
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//	class AActor* Birdparameters = nullptr; // The parameters that control the bird used to set in editor
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class AActor* target = nullptr;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -64,6 +66,8 @@ protected:
 		float minSpeed = 70.0; // minimum movement speed
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		int maxNeighbors = 25; // maximum amount of birds who can be followed
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		float randomMovement = 1.0; // how random to move  
 	void GetOtherBirds();
 	void UpdateParameters();
 	void Subscribe(); // Subscribe to the parameters
@@ -75,4 +79,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	FVector GetVel();
 	void Update(void* msg);
+	void ShowBird();
+	void HideBird();
+	void SetParameters(ABirdParameters* newParams);
 };

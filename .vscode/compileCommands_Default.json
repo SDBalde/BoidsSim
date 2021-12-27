@@ -85,6 +85,26 @@
 		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
 	},
 	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Nest.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Nest.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\NestComponent.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\NestComponent.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
 		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\PubSub.cpp",
 		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
 		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "TargetComponent.h"
+#include "NestComponent.h"
 #include "BoidsCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -23,6 +24,10 @@ class ABoidsCharacter : public ACharacter
 	/** Target Position */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Target, meta = (AllowPrivateAccess = "true"))
 	class UTargetComponent* target;
+
+	/** Nest Component */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Nest, meta = (AllowPrivateAccess = "true"))
+	class UNestComponent* nest;
 
 public:
 	ABoidsCharacter();
