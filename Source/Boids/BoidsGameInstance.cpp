@@ -26,7 +26,10 @@ void UBoidsGameInstance::OnLoadInGameMenu(){
 
 	UIManager->AddToViewport();
 	if(birdParams.Num() == 0) return;
-	currParams = UIManager->SetParameters(birdParams);
+	setCurrParams(UIManager->SetParameters(birdParams));
+}
+void UBoidsGameInstance::setCurrParams(ABirdParameters* newParams){
+	currParams = newParams;
 	UIManager->setCurrPlayerParam(currParams->getName());
 }
 
@@ -35,7 +38,7 @@ void UBoidsGameInstance::LinkParameters(ABirdParameters* params){
 	birdParams.Add(params);
 }
 
-void UBoidsGameInstance::ChangeParameters(int newParamIndex){
+ABirdParameters* UBoidsGameInstance::getParameters(int newParamIndex){
 	FString newParamName = "";
 	switch (newParamIndex)
 	{
@@ -53,13 +56,8 @@ void UBoidsGameInstance::ChangeParameters(int newParamIndex){
 	}
 	for(ABirdParameters* param:birdParams){
 		if(param->getName() == newParamName){
-			currParams->setParam(param);
-			currParams = param;
-			UIManager->setCurrPlayerParam(newParamName);
+			return param;
 		}
 	}
-}
-
-void UBoidsGameInstance::ChangeTarget(AActor* target){
-	currParams->setTarget(target);
+	return nullptr;
 }

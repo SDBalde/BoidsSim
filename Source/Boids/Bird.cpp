@@ -24,6 +24,7 @@ ABird::ABird()
 	SM_Bird->SetEnableGravity(false);
 	SM_Bird->SetLinearDamping(0.0f);
 	SM_Bird->SetCollisionProfileName(TEXT("BirdCollisionPreset"));
+	RootComponent = SM_Bird;
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_BirdAsset(TEXT("StaticMesh'/Game/Meshes/BirdMesh.BirdMesh'"));
     SM_Bird->SetStaticMesh(SM_BirdAsset.Object);
@@ -171,10 +172,12 @@ void ABird::Tick(float DeltaTime)
 	}
 
 	vel = vel + (close * avoidFactor); // Avoid bird who are too close
+
 	float RandX = FMath::RandRange(0,1)/1.0f;
 	float RandY = FMath::RandRange(0,1)/1.0f;
 	float RandZ = FMath::RandRange(0,1)/1.0f;
 	vel = vel + FVector(RandX,RandY,RandZ) * randomMovement; // random movement
+
 	if(target != nullptr){
 		targetPosition = target->GetActorLocation();
 		vel = vel + (targetPosition - pos)*targetFactor;

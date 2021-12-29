@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
 #include "Bird.h"
+#include "BirdParameters.h"
 #include "GameFramework/Actor.h"
 #include "NestComponent.generated.h"
 
@@ -32,6 +33,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float respawnRate = 0.1f;
 	float timer = 0.0f;
+	bool isAwake = false;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void InstantiateBirds();
@@ -41,6 +43,10 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-		void setNestSize(int newSize);
+	void setNestSize(int newSize);
+	void setTarget(AActor* target);
+	void setNewParams(ABirdParameters* newParams);
+	void setParams(ABirdParameters* newParams);
+	void StartNest();
 
 };

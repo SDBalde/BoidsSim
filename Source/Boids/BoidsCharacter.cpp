@@ -55,7 +55,7 @@ ABoidsCharacter::ABoidsCharacter()
 	// Create Nest
 	nest = CreateDefaultSubobject<UNestComponent>(TEXT("Nest"));
 	nest->SetupAttachment(RootComponent);
-
+	
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -66,9 +66,10 @@ void ABoidsCharacter::BeginPlay()
 	Super::BeginPlay();
 	target->AttachParent(this);
 	target->SetTargetTransform(this->GetTransform());
+	nest->setParams(this->GetGameInstance<UBoidsGameInstance>()->getParameters(1));
+	nest->StartNest();
 }
-//////////////////////////////////////////////////////////////////////////
-// Input
+
 
 void ABoidsCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -78,7 +79,7 @@ void ABoidsCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &ABoidsCharacter::ShootTarget);
 	PlayerInputComponent->BindAction("TargetActor", IE_Pressed, this, &ABoidsCharacter::TargetActor);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-	DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const int);
+	DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const int); // Used to pass a value when calling fonction
 	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation1", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 1);
 	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation2", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 2);
 	PlayerInputComponent->BindAction<FCustomInputDelegate>("Formation3", IE_Pressed, this, &ABoidsCharacter::ChangeFormation, 3);
@@ -192,7 +193,11 @@ void ABoidsCharacter::ActivateFlying(){
 }
 
 void ABoidsCharacter::ChangeFormation(int newFormation){
-	this->GetGameInstance<UBoidsGameInstance>()->ChangeParameters(newFormation);
+	ABirdParameters* newParam = this->GetGameInstance<UBoidsGameInstance>()->getParameters(newFormation);
+	if(newParam){
+		nest->setNewParams(newParam);
+		this->GetGameInstance<UBoidsGameInstance>()->setCurrParams(newParam);
+	}
 }
 
 void ABoidsCharacter::ShootTarget(){
@@ -202,13 +207,13 @@ void ABoidsCharacter::ShootTarget(){
 	bool hit = GetWorld()->LineTraceSingleByObjectType(hitRes,CameraBoom->GetComponentLocation(),CameraBoom->GetComponentLocation()+FollowCamera->GetForwardVector()*10000.0f,objParams);
 	if(hit){
 		//DrawDebugLine(GetWorld(), CameraBoom->GetComponentLocation(), (CameraBoom->GetComponentLocation()+FollowCamera->GetForwardVector()*10000.0f), FColor::Red, false, 1.0f);
-		//DrawDebugBox(GetWorld(), hitRes.ImpactPoint, FVector(5,5,5), FColor::Green, false, 1.0f); // The incoming collision
+		//DrawDebugBox(GetWorld(), hitRes.ImpactPoint, FVector(5,5,5), FColor::Green, false, 1.0f);
 		if(hitRes.GetActor()->ActorHasTag(FName(TEXT("target")))){
-			this->GetGameInstance<UBoidsGameInstance>()->ChangeTarget(hitRes.GetActor());
+			nest->setTarget(hitRes.GetActor());
 		}
 	}
 }
 
 void ABoidsCharacter::TargetActor(){
-	this->GetGameInstance<UBoidsGameInstance>()->ChangeTarget(this);
+	nest->setTarget(this);
 }

@@ -2,6 +2,7 @@
 
 
 #include "NestComponent.h"
+#include "BoidsGameInstance.h"
 
 // Sets default values for this component's properties
 UNestComponent::UNestComponent()
@@ -17,17 +18,19 @@ UNestComponent::UNestComponent()
 void UNestComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	InstantiateBirds();
 	timer = respawnRate;
-	
 }
 
+void UNestComponent::StartNest(){
+	InstantiateBirds();
+	isAwake = true;
+}
 
 // Called every frame
 void UNestComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	if(birdsAlive < nestSize){
+	if(birdsAlive < nestSize && isAwake){
 		timer += DeltaTime;
 		if(timer >= respawnRate){
 			SpawnBird();
@@ -54,17 +57,35 @@ void UNestComponent::InstantiateBirds(){
 }
 
 void UNestComponent::SpawnBird(){
-	ABird* bird = birdsListHidden.Pop(false);
-	bird->SetActorLocationAndRotation(GetComponentLocation(), GetComponentRotation());
-	bird->ShowBird();
-	birdsListShown.Add(bird);
-	birdsAlive++;
+	if(birdsListHidden.Num()>0){
+		ABird* bird = birdsListHidden.Pop(false);
+		bird->SetActorLocationAndRotation(GetComponentLocation(), GetComponentRotation());
+		bird->ShowBird();
+		birdsListShown.Add(bird);
+		birdsAlive++;
+	}
 }
 
 void UNestComponent::DestroyBird(){
-	ABird* bird = birdsListShown.Pop(false);
-	bird->HideBird();
-	birdsListHidden.Add(bird);
-	birdsAlive--;
+	if(birdsListShown.Num()){
+		ABird* bird = birdsListShown.Pop(false);
+		bird->HideBird();
+		birdsListHidden.Add(bird);
+		birdsAlive--;
+	}
 }
+
+void UNestComponent::setTarget(AActor* target){
+	params->setTarget(target);
+}
+
+void UNestComponent::setNewParams(ABirdParameters* newParams){
+	params->setParam(newParams);
+	params = newParams;
+}
+
+void UNestComponent::setParams(ABirdParameters* newParams){
+	this->params = newParams;
+}
+
 

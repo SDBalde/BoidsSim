@@ -41,7 +41,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnLoadInGameMenu();
 	void LinkParameters(ABirdParameters* params);
-	void ChangeParameters(int newParamIndex);
-	void ChangeTarget(AActor* target);
-	
+	ABirdParameters* getParameters(int newParamIndex);
+	void setCurrParams(ABirdParameters* newParams);
 };

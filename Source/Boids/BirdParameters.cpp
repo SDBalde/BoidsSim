@@ -16,6 +16,7 @@ void ABirdParameters::BeginPlay(){
 	GetWorld()->GetGameInstance<UBoidsGameInstance>()->LinkParameters(this);
 	targetStruct.targetActor = this;
 	targetStruct.targetName = FText::FromString(this->paramName);
+	newParam = this;
 }
 
 void ABirdParameters::changeParamValue(FString name, float newValue){
