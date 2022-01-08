@@ -15,7 +15,7 @@ UBoidsGameInstance::UBoidsGameInstance(const FObjectInitializer & ObjectInitiali
 }
 
 void UBoidsGameInstance::Init(){
-	
+	UE_LOG(LogTemp, Warning, TEXT("Instance Init"));
 }
 
 void UBoidsGameInstance::OnLoadInGameMenu(){
@@ -60,4 +60,10 @@ ABirdParameters* UBoidsGameInstance::getParameters(int newParamIndex){
 		}
 	}
 	return nullptr;
+}
+
+void UBoidsGameInstance::setBirdAmountTxt(int numAlive, int nestSize){
+	if(UIManager){
+		UIManager->setBirdAmountTxt(numAlive, nestSize);
+	}
 }

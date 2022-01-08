@@ -67,6 +67,7 @@ void ABoidsCharacter::BeginPlay()
 	target->AttachParent(this);
 	target->SetTargetTransform(this->GetTransform());
 	nest->setParams(this->GetGameInstance<UBoidsGameInstance>()->getParameters(1));
+	nest->setTarget(this);
 	nest->StartNest();
 }
 

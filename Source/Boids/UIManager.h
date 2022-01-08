@@ -46,7 +46,8 @@ protected:
 		class UEditableTextBox* minSpeedTxt;
 	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
 		class UTextBlock* currPlayerParam;
-	
+	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
+		class UTextBlock* birdAmount;
 	ABirdParameters* currParams = nullptr;
 
 	void ChangeValues();
@@ -62,4 +63,5 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void selectParamTarget(ABirdParameters* param);
 	void setCurrPlayerParam(FString paramName);
+	void setBirdAmountTxt(int numAlive, int nestSize);
 };	

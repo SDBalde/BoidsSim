@@ -6,6 +6,8 @@
 #include "Components/StaticMeshComponent.h"
 #include "DrawDebugHelpers.h"
 #include "BirdParameters.h"
+#include "NestComponent.h"
+
 
 // Sets default values
 ABird::ABird()
@@ -26,9 +28,10 @@ ABird::ABird()
 	SM_Bird->SetCollisionProfileName(TEXT("BirdCollisionPreset"));
 	RootComponent = SM_Bird;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_BirdAsset(TEXT("StaticMesh'/Game/Meshes/BirdMesh.BirdMesh'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_BirdAsset(TEXT("StaticMesh'/Game/Meshes/BirdMeshSphere.BirdMeshSphere'"));
+	//static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_BirdAsset(TEXT("StaticMesh'/Game/Meshes/BirdMeshCone.BirdMeshCone'"));
     SM_Bird->SetStaticMesh(SM_BirdAsset.Object);
-	
+	this->Tags.Add(FName(TEXT("bird")));
 }
 
 ABird::~ABird(){
@@ -132,17 +135,15 @@ void ABird::BeginPlay()
 void ABird::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 	FVector posAvg = FVector(0,0,0);
 	FVector velAvg = FVector(0,0,0);
 	FVector close = FVector(0,0,0);
 	FVector pos = GetActorLocation();
 	int neighbors = 0;
-	GetOtherBirds();
 	
-	for (AActor *other:birdList) //Check all bird range to find neighbors and too close
+	for (ABird *otherBird:birdList) //Check all bird range to find neighbors and too close
 	{
-		ABird* otherBird = Cast<ABird>(other);
+		//ABird* otherBird = Cast<ABird>(other);
 		if(otherBird == this){ // Skip if the other bird is this one
 			continue;
 		}
@@ -180,7 +181,8 @@ void ABird::Tick(float DeltaTime)
 
 	if(target != nullptr){
 		targetPosition = target->GetActorLocation();
-		vel = vel + (targetPosition - pos)*targetFactor;
+		if((targetPosition - pos).Size() > 0)
+			vel = vel + (targetPosition - pos)*targetFactor;
 	}
 
 	speed = vel.Size();
@@ -189,8 +191,7 @@ void ABird::Tick(float DeltaTime)
 	}else{
 		dir = vel/minSpeed;
 	}
-	speed = vel.Size();
-
+	
 	if(target != nullptr){
 		float distToTarget = (targetPosition - pos).Size();
 		if(distToTarget > 2*visualRange ){
@@ -201,17 +202,18 @@ void ABird::Tick(float DeltaTime)
 	}else{
 		ClampSpeed();
 	}
-	
-	speed = vel.Size();
 
 	//Check if bird will hit obstacle during forward movement
 	FHitResult hitRes;
 	FCollisionObjectQueryParams objParams(ECC_WorldStatic);
-	bool hit = GetWorld()->LineTraceSingleByObjectType(hitRes,pos,pos+dir*visualRange,objParams);
+	bool hit = GetWorld()->LineTraceSingleByObjectType(hitRes,pos,pos+dir*protectedRange,objParams);
 	if(hit){
-		if(!hitRes.GetActor()->ActorHasTag(FName(TEXT("target")))){
+		if(hitRes.GetActor()->ActorHasTag(FName(TEXT("foe"))) && hitRes.GetActor() == target){
+			nest->DestroyBird(this);
+		}else if(!hitRes.GetActor()->ActorHasTag(FName(TEXT("target"))) && !hitRes.GetActor()->ActorHasTag(FName(TEXT("bird")))){
 			vel = -vel;
 		}
+		
 		//try to move in opposite direction
 		//TODO code ray scan to find unobstructed path
 		//vel = vel + (dir-FVector(0,1,0))*turnfactor;
@@ -219,7 +221,7 @@ void ABird::Tick(float DeltaTime)
 	}
 
 	if(debug){ //Display debug info
-		DrawDebugLine(GetWorld(), pos, (pos + dir*protectedRange), FColor::Red); // The direction in which the bird is moving
+		DrawDebugLine(GetWorld(), pos, (pos + dir*visualRange), FColor::Red); // The direction in which the bird is moving
 		DrawDebugSphere(GetWorld(), pos, protectedRange, 8, FColor::Blue); // The protected range sphere
 		DrawDebugSphere(GetWorld(), pos, visualRange, 8, FColor::Green); // The visual range sphere
 		if(hit){
@@ -228,41 +230,19 @@ void ABird::Tick(float DeltaTime)
 	}
 
 	//set rotation to look at movement dir
-	//SM_Bird->AddWorldRotation((dir.Rotation() - SM_Bird->GetUpVector().Rotation()));
-
-	// DrawDebugLine(GetWorld(), pos, (pos + SM_Bird->GetUpVector()*protectedRange), FColor::Red);//up
-	// DrawDebugLine(GetWorld(), pos, (pos + SM_Bird->GetForwardVector()*protectedRange), FColor::Orange);//forward
-	// DrawDebugLine(GetWorld(), pos, (pos + SM_Bird->GetRightVector()*protectedRange), FColor::Purple);//right
-	// DrawDebugLine(GetWorld(), pos, (pos + dir*protectedRange), FColor::Blue);//up dir
-
-	// upRot = SM_Bird->GetUpVector().ToOrientationRotator();
-	//FRotator forwardRot = SM_Bird->GetForwardVector().ToOrientationRotator();
-	//FVector cpUp = FVector::CrossProduct(SM_Bird->GetUpVector(), SM_Bird->GetForwardVector());
-	//FRotator actRot = GetActorRotation();
-	// dirRot = dir.ToOrientationRotator();
-	// deltaRot = (dirRot - upRot);
-	// 	//SetActorRotation(deltaRot);// ->GetUpVector().Rotation()));
-	// 	AddActorWorldRotation(deltaRot, false,(FHitResult *)nullptr,ETeleportType::TeleportPhysics);
-	// 	//AddActorWorldRotation(FRotator(10,0,0));
-	//AddActorWorldRotation(deltaRot*DeltaTime, false,(FHitResult *)nullptr,ETeleportType::TeleportPhysics);
-	// actRot = GetActorRotation();
-	
-	// FVector cpDir = FVector::CrossProduct(dir, SM_Bird->GetForwardVector());
-	// DrawDebugLine(GetWorld(), pos, (pos + cpDir*protectedRange), FColor::Green);//forward dir
-	// deltaRot2 = (cpDir.ToOrientationRotator() - SM_Bird->GetForwardVector().ToOrientationRotator());
-	//upRot += deltaRot;
-	
-	//SM_Bird->AddWorldRotation(deltaRot2);
-	//SM_Bird->SetRelativeRotation(dirRot);
-	//SM_Bird->AddLocalRotation((FRotator(10,0,0))*DeltaTime);
+	//SM_Bird->AddWorldRotation((dir.Rotation() - SM_Bird->GetUpVector().Rotation())*DeltaTime);
+	//AddActorWorldRotation((dir.Rotation() - this->GetActorUpVector().Rotation()));
 
 	this->SetActorLocation(pos + vel*DeltaTime);
-	
 }
 
 void ABird::GetOtherBirds(){
-	birdList.Empty();
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABird::StaticClass(), birdList);
+	//birdList.Empty();
+	//UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABird::StaticClass(), birdList);
+}
+
+void ABird::SetBirdList(TArray<ABird*> newBirdList){
+	this->birdList = newBirdList;
 }
 
 FVector ABird::GetVel(){
@@ -270,11 +250,13 @@ FVector ABird::GetVel(){
 }
 
 void ABird::ClampSpeed(){
+	speed = vel.Size();
 	if(speed < minSpeed){ // Clamp velocity between min and max speed
 		vel = dir * minSpeed;
 	}else if(speed > maxSpeed){
 		vel = dir * maxSpeed;
 	}
+	speed = vel.Size();
 }
 
 void ABird::ShowBird(){
@@ -296,4 +278,8 @@ void ABird::SetParameters(ABirdParameters* newParams){
 	this->settings = newParams;
 	Subscribe();
 	UpdateParameters();
+}
+
+void ABird::SetNest(UNestComponent* newNest){
+	this->nest = newNest;
 }

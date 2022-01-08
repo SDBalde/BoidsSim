@@ -3,6 +3,7 @@
 
 #include "NestComponent.h"
 #include "BoidsGameInstance.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties
 UNestComponent::UNestComponent()
@@ -18,7 +19,9 @@ UNestComponent::UNestComponent()
 void UNestComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	timer = respawnRate;
+	initRespawnRate = spawnTime/nestSize;
+	currRespawnRate = initRespawnRate;
+	timer = initRespawnRate;
 }
 
 void UNestComponent::StartNest(){
@@ -30,13 +33,19 @@ void UNestComponent::StartNest(){
 void UNestComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	if(birdsAlive < nestSize && isAwake){
-		timer += DeltaTime;
-		if(timer >= respawnRate){
-			SpawnBird();
-			timer = 0.0f;
+	if(isAwake){
+		if(birdsAlive < nestSize){
+			timer += DeltaTime;
+			if(timer >= currRespawnRate){
+				SpawnBird();
+				timer = 0.0f;
+			}
+		}else if(initSpawn){
+			initSpawn = false;
+			currRespawnRate = respawnRate;
 		}
 	}
+	
 }
 
 void UNestComponent::setNestSize(int newSize){
@@ -51,9 +60,13 @@ void UNestComponent::InstantiateBirds(){
 		birdSpawned = GetWorld()->SpawnActor<ABird>(spawnPos, spawnRot);
 		birdSpawned->HideBird();
 		birdSpawned->SetParameters(params);
+		birdSpawned->SetNest(this);
 		birdsListHidden.Add(birdSpawned);
+		birdsList.Add(birdSpawned);
 	}
-	
+	for(ABird* bird:birdsList){
+		bird->SetBirdList(birdsList);
+	}
 }
 
 void UNestComponent::SpawnBird(){
@@ -63,16 +76,22 @@ void UNestComponent::SpawnBird(){
 		bird->ShowBird();
 		birdsListShown.Add(bird);
 		birdsAlive++;
+		NotifyBirdAmountChange();
 	}
 }
 
-void UNestComponent::DestroyBird(){
+void UNestComponent::DestroyBird(ABird* bird){
 	if(birdsListShown.Num()){
-		ABird* bird = birdsListShown.Pop(false);
 		bird->HideBird();
+		birdsListShown.Remove(bird);
 		birdsListHidden.Add(bird);
 		birdsAlive--;
+		NotifyBirdAmountChange();
 	}
+}
+
+void UNestComponent::NotifyBirdAmountChange(){
+	Cast<UBoidsGameInstance>(UGameplayStatics::GetGameInstance(this->GetWorld()))->setBirdAmountTxt(birdsAlive, nestSize);
 }
 
 void UNestComponent::setTarget(AActor* target){

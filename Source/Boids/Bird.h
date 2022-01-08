@@ -37,12 +37,13 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		FVector dir; // The direction of the bird (direction)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		TArray<AActor*> birdList; // All the birds who are alive
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		TArray<ABird*> birdList; // All the birds who are alive
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool debug = false; // Wether to activate the debug feature
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class ABirdParameters* settings = nullptr; // The parameters for control, used in code
 	FVector targetPosition;
+	class UNestComponent* nest = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		float turnFactor = 100.0; // how hard to turn to avoid obstacles  
@@ -68,12 +69,13 @@ protected:
 		int maxNeighbors = 25; // maximum amount of birds who can be followed
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		float randomMovement = 1.0; // how random to move  
+
 	void GetOtherBirds();
 	void UpdateParameters();
 	void Subscribe(); // Subscribe to the parameters
 	void Unsubsrcibe(); // Unsub to parameters
 	void ClampSpeed();
-
+	bool complete = true;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -82,4 +84,6 @@ public:
 	void ShowBird();
 	void HideBird();
 	void SetParameters(ABirdParameters* newParams);
+	void SetNest(UNestComponent* nest);
+	void SetBirdList(TArray<ABird*> birdList);
 };

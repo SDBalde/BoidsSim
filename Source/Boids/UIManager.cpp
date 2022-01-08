@@ -49,3 +49,7 @@ void UUIManager::ChangeValues(){
 void UUIManager::setCurrPlayerParam(FString paramName){
 	currPlayerParam->SetText(FText::FromString(paramName));
 }
+
+void UUIManager::setBirdAmountTxt(int numAlive, int nestSize){
+	birdAmount->SetText(FText::FromString(FString::Printf(TEXT("%d/%d"), numAlive, nestSize)));
+}

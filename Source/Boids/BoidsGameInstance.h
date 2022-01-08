@@ -43,4 +43,5 @@ public:
 	void LinkParameters(ABirdParameters* params);
 	ABirdParameters* getParameters(int newParamIndex);
 	void setCurrParams(ABirdParameters* newParams);
+	void setBirdAmountTxt(int numAlive, int nestSize);
 };
