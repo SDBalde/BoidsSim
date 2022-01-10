@@ -42,6 +42,7 @@ protected:
 	float timer = 0.0f;
 	bool isAwake = false;
 	bool initSpawn = true;
+	int AmountInitSpawn = 0;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void InstantiateBirds();
@@ -57,4 +58,5 @@ public:
 	void setParams(ABirdParameters* newParams);
 	void StartNest();
 	void DestroyBird(ABird* bird);
+	void ResetTarget();
 };

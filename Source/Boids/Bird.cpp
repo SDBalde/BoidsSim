@@ -7,6 +7,7 @@
 #include "DrawDebugHelpers.h"
 #include "BirdParameters.h"
 #include "NestComponent.h"
+#include "Ennemies.h"
 
 
 // Sets default values
@@ -209,6 +210,10 @@ void ABird::Tick(float DeltaTime)
 	bool hit = GetWorld()->LineTraceSingleByObjectType(hitRes,pos,pos+dir*protectedRange,objParams);
 	if(hit){
 		if(hitRes.GetActor()->ActorHasTag(FName(TEXT("foe"))) && hitRes.GetActor() == target){
+			bool isTargetDead = Cast<AEnnemies>(hitRes.GetActor())->ReceiveDamage(damageValue);
+			if(isTargetDead){
+				nest->ResetTarget();
+			}
 			nest->DestroyBird(this);
 		}else if(!hitRes.GetActor()->ActorHasTag(FName(TEXT("target"))) && !hitRes.GetActor()->ActorHasTag(FName(TEXT("bird")))){
 			vel = -vel;

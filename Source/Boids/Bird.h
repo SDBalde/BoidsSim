@@ -45,30 +45,33 @@ protected:
 	FVector targetPosition;
 	class UNestComponent* nest = nullptr;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float turnFactor = 100.0; // how hard to turn to avoid obstacles  
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float visualRange = 75.0; // how far to see neighbors
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float protectedRange = 30.0; // how far to see birds who are too close
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float centeringFactor = 0.5;	// how hard to go towards the center of neighbors
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float avoidFactor = 5.0; // how hard to move away from birds who are too close
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float matchingFactor = 0.1; // how hard to match direction of neighbors
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float targetFactor = 0.1; // how hard to go to target
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float maxSpeed = 300.0; // Maximum movement speed
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float travelSpeed = 1000.0; // Maximum movement speed
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float minSpeed = 70.0; // minimum movement speed
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		int maxNeighbors = 25; // maximum amount of birds who can be followed
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Parameters")
 		float randomMovement = 1.0; // how random to move  
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Attack")
+		float damageValue = 1.0f;
 
 	void GetOtherBirds();
 	void UpdateParameters();

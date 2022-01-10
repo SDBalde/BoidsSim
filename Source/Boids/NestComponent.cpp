@@ -27,6 +27,7 @@ void UNestComponent::BeginPlay()
 void UNestComponent::StartNest(){
 	InstantiateBirds();
 	isAwake = true;
+	initSpawn = true;
 }
 
 // Called every frame
@@ -39,10 +40,14 @@ void UNestComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 			if(timer >= currRespawnRate){
 				SpawnBird();
 				timer = 0.0f;
+				if(initSpawn){
+					AmountInitSpawn++;
+					if(AmountInitSpawn >= nestSize){
+						initSpawn = false;
+						currRespawnRate = respawnRate;
+					}
+				}
 			}
-		}else if(initSpawn){
-			initSpawn = false;
-			currRespawnRate = respawnRate;
 		}
 	}
 	
@@ -107,4 +112,6 @@ void UNestComponent::setParams(ABirdParameters* newParams){
 	this->params = newParams;
 }
 
-
+void UNestComponent::ResetTarget(){
+	this->setTarget(this->GetAttachmentRootActor());
+}

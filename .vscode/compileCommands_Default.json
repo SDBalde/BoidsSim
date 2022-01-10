@@ -85,6 +85,16 @@
 		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
 	},
 	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Ennemies.cpp",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Ennemies.h",
+		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
+		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
+	},
+	{
 		"file": "D:\\\\Soulaha_Balde\\\\Documents\\\\UE\\\\BoidsSim\\\\Source\\\\Boids\\\\Nest.cpp",
 		"command": "cl.exe @\"D:\\Soulaha_Balde\\Documents\\UE\\BoidsSim\\.vscode\\compileCommands_Default\\Boids.182.rsp\"",
 		"directory": "C:\\Program Files\\UnrealEngine\\UE_4.26\\Engine\\Source"
